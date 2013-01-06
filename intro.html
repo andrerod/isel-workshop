@@ -64,7 +64,15 @@
         <section>
           <h2>Node.js <b>is</b></h2>
 
-          <p>... a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.</p>
+          <p>... a platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications.</p>
+        </section>
+
+        <section>
+          <h2>Who's using it ?</h2>
+        </section>
+
+        <section>
+          <img class="image" width="1079" height="733" src="images/using.png" />
         </section>
 
         <section>
@@ -127,6 +135,21 @@ sudo make install
         </section>
 
         <section>
+          <h2>Hello world</h2>
+
+          <div>
+            <pre><code contenteditable>
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:1337/');
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
           <h2>Node.js approach to concurrency</h2>
         </section>
 
@@ -139,11 +162,11 @@ sudo make install
         <section>
           <h2>First basis theory</h2>
 
-          <p>IO is expensive</p>
+          <p>I/O is expensive</p>
         </section>
 
         <section>
-          <h2>Cost of IO</h2>
+          <h2>Cost of I/O</h2>
 
           <table>
             <tr>
@@ -170,7 +193,7 @@ sudo make install
         </section>
 
         <section>
-          <h2>Approaches to IO</h2>
+          <h2>Approaches to I/O</h2>
 
           <ul>
             <li>Synchronous</li>
@@ -220,6 +243,115 @@ console.log('I have started the query');
           <p>... javascript is ideal</p>
         </section>
 
+        <section>
+          <h2>Closures</h2>
+
+          <p>Access variables outside the current scope</p>
+          <pre><code contenteditable>
+var parcels = [2, 5, 10, 42, 67, 78, 89, 120];
+var sum = 0;
+ 
+function sumParcel(parcel) {
+  sum += parcel;
+}
+ 
+parcels.forEach(sumParcel);
+console.log('sum: ' + sum);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Asynchronous Execution</h2>
+
+          <p>Iteration example</p>
+          <pre><code contenteditable>
+var i = 0;
+while( ++ i <= 4) {
+  setTimeout(function() {
+    console.log(i);
+  }, 100);
+}
+          </code></pre>
+
+          <p>always prints 5. Why?</p>
+        </section>
+
+        <section>
+          <h2>Asynchronous Execution</h2>
+
+          <p>Using a closure</p>
+          <pre><code contenteditable>
+var i = 0;
+while( ++ i <= 4) {
+  (function(i) {
+    setTimeout(function() {
+      console.log(i);
+    }, 100);
+  }(i));
+}
+          </code></pre>
+
+          <p>prints 1, 2, 3, 4</p>
+        </section>
+
+        <section>
+          <h2>Event loop</h2>
+
+          <p>The reactor pattern</p>
+          <img class="image" width="547" height="319" src="images/eventloop.png" />
+        </section>
+
+        <section>
+          <h2><b>Blocking</b> the event loop</h2>
+
+          <pre><code contenteditable>
+var cycle = true;
+var counter = 0;
+ 
+function firstCallback() {
+  while(cycle) {
+    counter ++;
+  }
+}
+ 
+setTimeout(firstCallback, 100);
+ 
+function secondCallback() {
+  cycle = false;
+}
+ 
+setTimeout(secondCallback, 200);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Node.js philosophy</h2>
+        </section>
+
+        <section>
+          <h2>Node.js is minimal</h2>
+          <p>Complexity is userland</p>
+        </section>
+
+        <section>
+          <h2>Minimal surface area</h2>
+          <p>Expose only the absolute essential</p>
+        </section>
+
+        <section>
+          <h2>Reuse</h2>
+          <p>A functional API</p>
+
+          <pre><code contenteditable>
+a = …
+a.useLog(console.log);
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Summary</h2>
+          <p>Node addresses I/O with an Evented Model performance</p>
+        </section>
       </div>
 
     </div>
