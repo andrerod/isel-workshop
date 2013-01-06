@@ -27,6 +27,11 @@
       document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
 
+    <!-- Twitter Buttons -->
+    <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+    </script>
+
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
@@ -43,7 +48,8 @@
           <h1>Intro to Node.js</h1>
 
           <div class="authors">
-            <p>Andre Rodrigues, Microsoft<p>
+            <p>Andre Rodrigues</p>
+            <p><small>Software Development Engineer @ Microsoft</small><p>
             <a href="https://twitter.com/andremrodrigues" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @andremrodrigues</a>
           </div>
         </section>
@@ -55,10 +61,27 @@
         <section>
           <h2>Node.js <b>is not</b></h2>
 
-          <ul>
+          <ul class="clean-list">
             <li>... a language</li>
             <li>... a web framework</li>
           </ul>
+
+          <aside class="notes">
+            <ul>
+              <li>Not a language
+                <ul>
+                  <li>Javascript is the language, not Node.js</li>
+                </ul>
+              </li>
+              <li>Not a web framework
+                <ul>
+                  <li>It speaks many protocols, TCP, UDP, SPDY</li>
+                  <li>Built-in support for building</li>
+                  <li>Django or Rails-like applications</li>
+                </ul>
+              </li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -86,10 +109,21 @@
             <h2>Installing Node.js</h2>
             <br/>
             <h3>Binary Installers</h3>
-            <ul>
+            <ul class="clean-list">
               <li><a href="http://github.com">github.com</a></li>
               <li><a href="http://nodejs.org">nodejs.org</a></li>
             </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>Binary Installers
+                  <ul>
+                    <li>There are binary installers for each major OS</li>
+                    <li>Go to nodejs.org or github and download the tarball or zipball</li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
           </section>
 
           <section>
@@ -98,6 +132,18 @@
               <li>Stable: v0.8.16</li>
               <li>Unstable: v0.9.4</li>
             </ul>
+
+            <aside class="notes">
+              <ul>
+                <li>Versions
+                  <ul>
+                    <li>Stable and unstable versions: Even minor versions are stable</li>
+                    <li>Unstable versions are for developers, testing the bleeding edge</li>
+                    <li>Use the latest stable!</li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
           </section>
         </section>
 
@@ -150,7 +196,7 @@ console.log('Server running at http://127.0.0.1:1337/');
         </section>
 
         <section>
-          <h2>Node.js approach to concurrency</h2>
+          <h2>Node.js approach to <b>concurrency</b></h2>
         </section>
 
         <section>
@@ -160,7 +206,7 @@ console.log('Server running at http://127.0.0.1:1337/');
         </section>
 
         <section>
-          <h2>First basis theory</h2>
+          <h2><b>First</b> basis <b>theory</b></h2>
 
           <p>I/O is expensive</p>
         </section>
@@ -203,13 +249,13 @@ console.log('Server running at http://127.0.0.1:1337/');
         </section>
 
         <section>
-          <h2>Second basis theory</h2>
+          <h2><b>Second</b> basis <b>theory</b></h2>
 
           <p>Thread-per-connection is memory-expensive</p>
         </section>
 
         <section>
-          <h2>Multi thread vs event base</h2>
+          <h2>Multi thread vs event based</h2>
           <img class="image" width="644" height="309" src="images/nginx-apache.png" />
         </section>
 
@@ -240,7 +286,7 @@ console.log('I have started the query');
         <section>
           <h2>Event driven programming</h2>
 
-          <p>... javascript is ideal</p>
+          <p>... <b>javascript</b> is ideal</p>
         </section>
 
         <section>
@@ -329,17 +375,17 @@ setTimeout(secondCallback, 200);
         </section>
 
         <section>
-          <h2>Node.js is minimal</h2>
+          <h2>Node.js is <b>minimal</b></h2>
           <p>Complexity is userland</p>
         </section>
 
         <section>
-          <h2>Minimal surface area</h2>
+          <h2>Minimal <b>surface area</b></h2>
           <p>Expose only the absolute essential</p>
         </section>
 
         <section>
-          <h2>Reuse</h2>
+          <h2><b>Reuse</b></h2>
           <p>A functional API</p>
 
           <pre><code contenteditable>
@@ -350,7 +396,9 @@ a.useLog(console.log);
 
         <section>
           <h2>Summary</h2>
-          <p>Node addresses I/O with an Evented Model performance</p>
+          <ul>
+            <li>Node addresses I/O with an Evented Model performance</li>
+          </ul>
         </section>
       </div>
 
@@ -384,11 +432,6 @@ a.useLog(console.log);
         ]
       });
 
-    </script>
-
-    <!-- Twitter Buttons -->
-    <script>
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     </script>
   </body>
 </html>
